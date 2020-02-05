@@ -3,13 +3,15 @@ from evdev import InputDevice, categorize, ecodes
 import os
 import ControllerVariables
 import AssignControllerValues
+import time
+from PcRoboControlPort import CalculateKinematics
 #creates object 'gamepad' to store the data
 #you can call it whatever you like
-while not os.path.exists('/dev/input/event7'):
+while not os.path.exists('/dev/input/event0'):
     print('Waiting for connection')
-    
+time.sleep(1)
 
-gamepad = InputDevice('/dev/input/event7')
+gamepad = InputDevice('/dev/input/event0')
 
 #prints out device info at start
 print(gamepad)
@@ -21,3 +23,6 @@ for event in gamepad.read_loop():
     #    print(event)
     
     AssignControllerValues.assign_ValueToButtons(event)
+    print(CalculateKinematics())
+    
+    #print(ControllerVariables.code)
