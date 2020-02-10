@@ -1,6 +1,7 @@
 import ControllerVariables
 import FindController
 import math
+import SPIComm
 yAxis = ControllerVariables.code[1]
 xAxis = ControllerVariables.code[0]
 
@@ -32,7 +33,8 @@ def InverseKinematicWire (k, phi, s):
     L1 = first - length
     L2 = second - length
     L3 = third - length
-    return wirelength[L1, L2,L3]
+    wirelength = [L1,L2,L3]
+    return wirelength
 
 
 def CalculateKinematics():
@@ -40,7 +42,11 @@ def CalculateKinematics():
     phi2 = JoyStickCorrector (xAxisRotation, rate)
     k1   = FindK(yAxis, rate, 0.7)
     k2   = FindK(yAxisRotation,rate,1.2)
-
+    
+    sendMessageSPI = [phi1,phi2,k1,k2]
+    
+    #Turns the kinematic values into a list and sends them to MyRio 
+    SPIComm.sendMSG(sendMessageSPI)
     firstThreeWires = InverseKinematicWire(k1,phi1,length)
     lastThreeWires =  InverseKinematicWire(k2,phi2,length)
     wirelengths = firstThreeWires + lastThreeWires
