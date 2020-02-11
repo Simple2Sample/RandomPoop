@@ -1,0 +1,12 @@
+[My Computer]
+My Computer = "172.22.11.1"
+
+[myRIO]
+myRIO = "172.22.11.2"
+
+[Networked Computer/Device]
+Networked Computer/Device = "10.113.1.115"
+
+[zynq-rares]
+zynq-rares = "10.113.1.115"
+

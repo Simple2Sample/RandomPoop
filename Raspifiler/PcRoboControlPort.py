@@ -1,6 +1,6 @@
 import ControllerVariables
 import math
-
+import I2CComm
 
 rate = 0.4
 curveLength = 0.5
@@ -49,9 +49,9 @@ def CalculateKinematics():
     phi2 = JoyStickCorrector (xAxisRotation, rate)
     k1   = FindK(yAxis, rate, 0.7)
     k2   = FindK(yAxisRotation,rate,1.2)
-
+    kinematicsVariables = [phi1,phi2,k1,k2]
+    I2CComm.sendMSG(kinematicsVariables)
     firstThreeWires = InverseKinematicWire(k1,phi1,length)
     lastThreeWires =  InverseKinematicWire(k2,phi2,length)
-    wirelengths = firstThreeWires + lastThreeWires
-    print(len(wirelengths))    
+    wirelengths = firstThreeWires + lastThreeWires    
     return wirelengths

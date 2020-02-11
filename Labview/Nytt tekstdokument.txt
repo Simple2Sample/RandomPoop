@@ -1,0 +1,24 @@
+k: curviture Robot
+phi: dreivinkel robot
+s: lengde robot
+d1...: posisjon snorer
+d1..._0: feil i posisjon snorer
+p_0: vognens posisjon
+-kjører: 0
+-ilya:   1
+-morten: 2
+o: bool ordre plaset
+p: ønsket posisjon
+
+
+
+button 1 = x
+button 2 = O
+button 3 = firkant
+button 4 = trekant
+button 5 = L1
+button 6 = R1
+button 7 = select
+button 8 = start
+button 9 = L3
+button 10 = R3

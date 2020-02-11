@@ -1,7 +1,7 @@
 import ControllerVariables
 import FindController
 import math
-import SPIComm
+import I2CComm
 yAxis = ControllerVariables.code[1]
 xAxis = ControllerVariables.code[0]
 
@@ -46,7 +46,7 @@ def CalculateKinematics():
     sendMessageSPI = [phi1,phi2,k1,k2]
     
     #Turns the kinematic values into a list and sends them to MyRio 
-    SPIComm.sendMSG(sendMessageSPI)
+    I2CComm.sendMSG(sendMessageSPI)
     firstThreeWires = InverseKinematicWire(k1,phi1,length)
     lastThreeWires =  InverseKinematicWire(k2,phi2,length)
     wirelengths = firstThreeWires + lastThreeWires
