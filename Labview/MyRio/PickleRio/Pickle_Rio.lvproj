@@ -12,6 +12,8 @@
 	<Property Name="PrivateNetwork.UDPPort" Type="UInt">40000</Property>
 	<Property Name="SMProvider.SMVersion" Type="Int">201310</Property>
 	<Property Name="varPersistentID:{03FBF6DA-F417-48F6-95DA-8910BE93DA61}" Type="Ref">/MyRioDeJaneiro/Robo lib.lvlib/Phi2</Property>
+	<Property Name="varPersistentID:{2A25C481-8D4F-4159-91B8-C9D330FAE150}" Type="Ref">/MyRioDeJaneiro/Untitled Library 1.lvlib/Iterator</Property>
+	<Property Name="varPersistentID:{428D7B99-7CE1-427E-A6CE-FD7743F7624A}" Type="Ref">/MyRioDeJaneiro/Untitled Library 1.lvlib/ArrayIterator</Property>
 	<Property Name="varPersistentID:{978C5EC2-BBFE-4962-84DE-37906A19E960}" Type="Ref">/MyRioDeJaneiro/Robo lib.lvlib/K2</Property>
 	<Property Name="varPersistentID:{99051DE9-1CB0-4959-8603-6B02DCB5D5A2}" Type="Ref">/MyRioDeJaneiro/Div lib.lvlib/Mode</Property>
 	<Property Name="varPersistentID:{AA969C5C-F211-43DF-BEE3-6BC16DAEE634}" Type="Ref">/MyRioDeJaneiro/Car lib.lvlib/Dir</Property>
@@ -1853,6 +1855,7 @@ DirectoryIndex index.htm
 		<Item Name="test pump.vi" Type="VI" URL="../SubVI/test pump.vi"/>
 		<Item Name="pid.vi" Type="VI" URL="../SubVI/pid.vi"/>
 		<Item Name="Div lib.lvlib" Type="Library" URL="../Div lib.lvlib"/>
+		<Item Name="Untitled Library 1.lvlib" Type="Library" URL="../Untitled Library 1.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="AO.lvlib" Type="Library" URL="/&lt;vilib&gt;/myRIO/Instrument Drivers/Onboard IO/AO/AO.lvlib"/>
