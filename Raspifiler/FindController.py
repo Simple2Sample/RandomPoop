@@ -24,5 +24,6 @@ for event in gamepad.read_loop():
     
     AssignControllerValues.assign_ValueToButtons(event)
     print(CalculateKinematics())
-    
+    purgeTimer = time.monotonic_ns()
+
     #print(ControllerVariables.code)

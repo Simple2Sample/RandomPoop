@@ -50,6 +50,7 @@ def CalculateKinematics():
     k1   = FindK(yAxis, rate, 0.7)
     k2   = FindK(yAxisRotation,rate,1.2)
     kinematicsVariables = [phi1,phi2,k1,k2]
+    print(kinematicsVariables)
     I2CComm.sendMSG(kinematicsVariables)
     firstThreeWires = InverseKinematicWire(k1,phi1,length)
     lastThreeWires =  InverseKinematicWire(k2,phi2,length)
