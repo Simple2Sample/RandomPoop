@@ -1,6 +1,6 @@
 import ControllerVariables
 import math
-import I2CComm
+import SerialComm
 
 rate = 0.4
 curveLength = 0.5
@@ -19,13 +19,14 @@ def JoyStickCorrector(axisValue, rate):
        return -1
     
 
-
+#Find "K"
 def FindK (axisValue, rate, ranger):
     rangeValue = ranger * math.pi
     correction = JoyStickCorrector (axisValue, 2*rate)
     if correction < rangeValue and correction > (-1)*rangeValue:
         return correction
 
+#Converts kinematic values over to wire lengths and returns the values in a list
 def InverseKinematicWire (k, phi, s):
     first = s*(1-k*length*math.cos(((math.pi)/6)) + phi)
     second = s*(1+k*length*math.sin(((math.pi)/3)) + phi)
@@ -33,10 +34,10 @@ def InverseKinematicWire (k, phi, s):
     L1 = first - length
     L2 = second - length
     L3 = third - length
-    wirelength = [L1, L2,L3]
+    wirelength = [L1, L2, L3]
     return wirelength
 
-
+#Uses the above functions and returns the wire lengths.
 def CalculateKinematics():
     
     yAxis = ControllerVariables.code[1]
@@ -50,9 +51,9 @@ def CalculateKinematics():
     k1   = FindK(yAxis, rate, 0.7)
     k2   = FindK(yAxisRotation,rate,1.2)
     kinematicsVariables = [phi1,phi2,k1,k2]
-    print(kinematicsVariables)
-    I2CComm.sendMSG(kinematicsVariables)
     firstThreeWires = InverseKinematicWire(k1,phi1,length)
     lastThreeWires =  InverseKinematicWire(k2,phi2,length)
     wirelengths = firstThreeWires + lastThreeWires    
+    wirelengths = [round(elem, 4) for elem in wirelengths ]
+    print(wirelengths)
     return wirelengths

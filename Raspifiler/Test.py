@@ -1,4 +1,4 @@
 yoyo = 'Heisann'
-x = 1
+yoyo.replace('e','9')
 
 print(yoyo + 'x')
